@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="root">
+  <head>
+    <meta charset="utf-8">
+    <title>Kendo UI and AngularJS 1.x</title>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.504/styles/kendo.default-v2.min.css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+    <root>Loading...</root>
+
+    <!-- Our libs section -->
+
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="http://kendo.cdn.telerik.com/2017.2.504/js/jszip.min.js"></script>
+  <script src="http://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+    <!-- Root  & app components -->
+    <script src="scripts/root.module.js"></script>
+    <script src="scripts/root.component.js"></script>
+
+    <script src="scripts/common/app.module.js"></script>
+    <script src="scripts/common/app.component.js"></script>
+    <script src="scripts/common/app.controller.js"></script>
+
+    <!-- The only service we are using -->
+    <script src="scripts/common/core.service.js"></script>
+
+    <!-- Load our other components (edit, grid, and chart) -->
+    <script src="scripts/components/edit/edit.module.js"></script>
+    <script src="scripts/components/edit/edit.component.js"></script>
+    <script src="scripts/components/edit/edit.controller.js"></script>
+
+    <script src="scripts/components/grid/grid.module.js"></script>
+    <script src="scripts/components/grid/grid.component.js"></script>
+    <script src="scripts/components/grid/grid.controller.js"></script>
+
+    <script src="scripts/components/chart/chart.module.js"></script>
+    <script src="scripts/components/chart/chart.component.js"></script>
+    <script src="scripts/components/chart/chart.controller.js"></script>
+  </body>
+</html>

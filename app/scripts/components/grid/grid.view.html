@@ -1,0 +1,12 @@
+<div class="demoSection">
+  <kendo-grid
+    style="height: 300px"
+    k-data-source="$ctrl.gridDataSource"
+    k-columns="$ctrl.gridColumns"
+    k-pageable="true"
+    k-filterable="true"
+    k-sortable="true"
+    k-editable="$ctrl.gridEditableOptions"
+    k-on-data-bound="$ctrl.gridDataBound(kendoEvent)">
+  </kendo-grid>
+</div>

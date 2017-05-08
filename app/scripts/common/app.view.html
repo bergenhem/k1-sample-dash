@@ -1,0 +1,9 @@
+<div>
+  <div class="headerSection">
+    <h1>Kendo UI Sample Sales Dashboard (ng 1.x)</h1>
+  </div>
+  <kendo-button class="k-primary addButton" ng-show="$ctrl.editToggle" ng-click="$ctrl.toggleAdd()">Add Item</kendo-button>
+  <edit on-add-toggle="$ctrl.hideToggle()" ng-show="!$ctrl.editToggle"></edit>
+  <grid></grid>
+  <chart></chart>
+</div>

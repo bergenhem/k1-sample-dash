@@ -1,0 +1,56 @@
+<div class="demoSection">
+  <form class="formArea" ng-submit="$ctrl.submitClick($event)">
+    <a href="#" class="closeIcon" ng-click="$ctrl.closeForm()">
+      <span class="k-icon k-i-close"></span>
+    </a>
+    <ul id="fieldlist">
+      <li>
+        <label for="orderdate">Order Date</label>
+        <input kendo-date-picker id="orderdate"
+               k-ng-model="$ctrl.gridItem.OrderDate"
+               placeholder="Order Date" />
+      </li>
+      <li>
+        <label for="customerName">Customer</label>
+        <input class="k-textbox" id="customerName"
+               ng-model="$ctrl.gridItem.Customer"
+               placeholder="Customer" />
+      </li>
+      <li>
+        <label for="employeeName">Employee Name</label>
+        <input class="k-textbox" id="employeeName"
+               ng-model="$ctrl.gridItem.Employee"
+               placeholder="Employee Name" />
+      </li>
+      <li>
+        <label for="orderTotal">Order Amount</label>
+        <input kendo-numeric-text-box id="orderTotal"
+               k-min="0"
+               ng-model="$ctrl.gridItem.OrderTotal"
+               placeholder="'Order Amount'" />
+      </li>
+      <li>
+        <label for="orderStatus">Order Status</label>
+        <select kendo-drop-down-list id="orderStatus"
+                k-option-label="{ OrderStatus: 'Order Status' }"
+                k-value-primitive="true"
+                k-data-text-field="'OrderStatus'"
+                k-data-value-field="'OrderStatus'"
+                k-data-source="$ctrl.dropdownDataSource"
+                k-ng-model="$ctrl.gridItem.OrderStatus">
+        </select>
+      </li>
+      <li>
+        <label for="delivered">Delivered</label>
+        <input kendo-mobile-switch id="delivered"
+               ng-model="$ctrl.gridItem.Delivered"
+               type="checkbox"
+               k-on-label="'Yes'"
+               k-off-label="'No'" />
+      </li>
+      <li>
+        <kendo-button class="k-primary" type="submit">Add Item</kendo-button>
+      </li>
+    <ul>
+  </form>
+</div>

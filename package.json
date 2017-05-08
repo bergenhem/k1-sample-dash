@@ -1,0 +1,9 @@
+{
+	"name": "k1-to-k2",
+	"description": "Simplified example of Kendo UI for AngularJS 1.x to be converted to Angular",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "latest",
+		"ejs": "latest"
+	}
+}

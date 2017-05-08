@@ -1,0 +1,13 @@
+<div class="demoSection">
+  <kendo-chart
+      k-theme="'default-v2'"
+      k-data-source="$ctrl.chartDataSource"
+      k-series="[
+        { field: 'OrderTotal', categoryField: 'OrderDate' }
+      ]"
+      k-category-axis="{ baseUnit: 'months'}"
+      k-series-defaults=" { type: 'line' }"
+      k-legend="{ position: 'bottom' }"
+      k-title="{ text: 'Sales by Employee', font: 'inherit' }">
+  </kendo-chart>
+</div>
