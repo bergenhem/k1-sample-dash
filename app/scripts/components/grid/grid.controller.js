@@ -73,13 +73,13 @@
     };
 
     vm.gridColumns = [
-        { field: 'OrderDate', title: 'Order Date', format: '{0:yyyy-MM-dd}' },
+        { field: 'OrderDate', title: 'Order Date', format: '{0:yyyy-MM-dd}', width: 150 },
         { field: 'Customer', title: 'Customer' },
         { field: 'Employee', title: 'Employee' },
         { field: 'OrderTotal', title: 'Order Total' },
         { field: 'OrderStatus', title: 'Order Status', editor: vm.statusDropDownEditor },
-        { field: 'Delivered', title: 'Delivered' },
-        { command: ['edit', 'destroy'], title: '&nbsp;' }
+        { field: 'Delivered', title: 'Delivered', width: 140 },
+        { command: ['edit', 'destroy'], title: '&nbsp;', width: 200 }
     ];
 
     vm.gridEditableOptions = {
