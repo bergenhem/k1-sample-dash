@@ -8,4 +8,4 @@
 
 1. Clone or download the repo
 2. Navigate to the project folder and run `npm install`
-3. Run the application in the browser by using `node serve.js`
+3. Run the application in the browser by using `node server.js`
