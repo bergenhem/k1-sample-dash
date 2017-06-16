@@ -35,12 +35,14 @@
           });
         },
         update: function(e) {
-          console.log("update!");
-          coreservice.updateData(e.data)
-          .then(function success(response) {
-            e.success(response);
-          }, function(error) {
-            console.log('Error while Updating: ', error);
+          console.log("Updating grid data!", e);
+          e.data.models.forEach(function (dataItem) {
+            coreservice.updateData(dataItem)
+            .then(function success(response) {
+              e.success(response);
+            }, function(error) {
+              console.log('Error while Updating: ', error);
+            });
           });
         },
         destroy: function(e) {
@@ -57,6 +59,7 @@
           // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap
         },
       },
+      batch: true,
       pageSize: 5
     });
 
@@ -79,12 +82,11 @@
         { field: 'OrderTotal', title: 'Order Total' },
         { field: 'OrderStatus', title: 'Order Status', editor: vm.statusDropDownEditor },
         { field: 'Delivered', title: 'Delivered', width: 140 },
-        { command: ['edit', 'destroy'], title: '&nbsp;', width: 200 }
+        { command: ['destroy'], title: '&nbsp;', width: 200 }
     ];
 
     vm.gridEditableOptions = {
-      mode: 'inline',
-      update: true,
+      mode: 'incell',
       destroy: true
     };
 
