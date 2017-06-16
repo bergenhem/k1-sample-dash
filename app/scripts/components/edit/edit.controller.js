@@ -22,12 +22,7 @@
     vm.submitClick = function(e) {
       e.preventDefault();
       coreservice.addData(vm.gridItem);
-      vm.closeForm();
     };
-
-    vm.closeForm = function() {
-      vm.onAddToggle();
-    }
   };
 
   angular
