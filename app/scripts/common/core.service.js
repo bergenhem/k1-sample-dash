@@ -44,10 +44,8 @@
     function readData() {
       var deferred = $q.defer();
 
-      setTimeout(function() {
-        dataFromBackend.sort(_compare);
-        deferred.resolve(dataFromBackend);
-      }, 2000);
+      dataFromBackend.sort(_compare);
+      deferred.resolve(dataFromBackend);
 
       return deferred.promise;
     };
@@ -57,45 +55,41 @@
     function addData(dataItem) {
       var deferred = $q.defer();
 
-      setTimeout(function() {
-        dataFromBackend.sort(_compare);
-        var lastId = dataFromBackend[dataFromBackend.length - 1].OrderId;
-        dataItem.OrderId = lastId + 1; //increment our OrderIds
-        dataFromBackend.push(dataItem);
+      dataFromBackend.sort(_compare);
+      var lastId = dataFromBackend[dataFromBackend.length - 1].OrderId;
+      dataItem.OrderId = lastId + 1; //increment our OrderIds
+      dataFromBackend.push(dataItem);
+      for(var i = 0; i < callbacks.length; i++) {
+        callbacks[i](dataItem);
+      }
 
-        for(var i = 0; i < callbacks.length; i++) {
-          callbacks[i](dataItem);
-        }
-
-        deferred.resolve(dataFromBackend);
-      }, 1000);
+      deferred.resolve(dataFromBackend);
 
       return deferred.promise;
     };
 
     function updateData(dataItem) {
       var deferred = $q.defer();
-      setTimeout(function() {
-        var itemIndex = _findItemIndexById(dataItem.OrderId);
-        if(itemIndex != undefined) {
-          var itemToUpdate = dataFromBackend[itemIndex];
-          itemToUpdate.OrderDate = dataItem.OrderDate;
-          itemToUpdate.Customer = dataItem.Customer;
-          itemToUpdate.Employee = dataItem.Employee;
-          itemToUpdate.OrderTotal = dataItem.OrderTotal;
-          itemToUpdate.OrderStatus = dataItem.OrderStatus;
-          itemToUpdate.Delivered = dataItem.Delivered;
 
-          for(var i = 0; i < callbacks.length; i++) {
-            callbacks[i](dataItem);
-          }
+      var itemIndex = _findItemIndexById(dataItem.OrderId);
+      if(itemIndex != undefined) {
+        var itemToUpdate = dataFromBackend[itemIndex];
+        itemToUpdate.OrderDate = dataItem.OrderDate;
+        itemToUpdate.Customer = dataItem.Customer;
+        itemToUpdate.Employee = dataItem.Employee;
+        itemToUpdate.OrderTotal = dataItem.OrderTotal;
+        itemToUpdate.OrderStatus = dataItem.OrderStatus;
+        itemToUpdate.Delivered = dataItem.Delivered;
 
-          deferred.resolve(itemToUpdate);
+        for(var i = 0; i < callbacks.length; i++) {
+          callbacks[i](dataItem);
+        }
+        
+        deferred.resolve(itemToUpdate);
         }
         else {
           deferred.reject("Item not found via Order Id: " + dataItem.OrderId);
         }
-      }, 500);
 
       return deferred.promise;
     };
