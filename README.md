@@ -4,7 +4,7 @@
 
 - Install NodeJS https://nodejs.org/en/
 
-### Lanch App
+### Launch App
 
 1. Clone or download the repo
 2. Navigate to the project folder and run `npm install`
